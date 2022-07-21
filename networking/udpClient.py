@@ -1,10 +1,11 @@
+from fileinput import close
 import socket
 
 
-
+'''
 #to set up variables
 targetHost ="127.0.0.1" 
-targetPort= 9997
+targetPort= 443
 
 
 
@@ -20,5 +21,17 @@ data, addr =client.recvfrom(4096)
 
 print(data.decode())
 client.close()
+'''
+
+serverIp= "meowhecker.com"
+serverPort= 80
+
+client = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
+client.sendto(b"MEOWHECKER",(serverIp,serverPort))
+receive = client.recvfrom(4096)
+
+print(receive.decode())
+client.close
+
 
 
